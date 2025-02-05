@@ -2,8 +2,12 @@ package com.vendor.Vendor_Insight.Entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
 
 @Entity
+@Getter
+@Setter
 @Table(name = "Address")
 public class Address {
 
@@ -14,9 +18,7 @@ public class Address {
     @JsonIgnore
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "vendor_id")
-    private Vendor vendor;
-
-
+    private Vendor vendorId;
 
     @Column(name = "billing_attention")
     private String billingAttention;
@@ -92,11 +94,11 @@ public class Address {
     }
 
     public Vendor getVendor() {
-        return vendor;
+        return vendorId;
     }
 
-    public void setVendor(Vendor vendor) {
-        this.vendor = vendor;
+    public void setVendor(Vendor vendorId) {
+        this.vendorId = vendorId;
     }
 
     public String getBillingAttention() {
