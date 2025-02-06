@@ -8,7 +8,7 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-@Table(name = "Contact_Persons")
+@Table(name = "Contact_Person")
 public class ContactPerson {
 
     @Id
@@ -39,7 +39,12 @@ public class ContactPerson {
     @JsonIgnore
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "vendor_id")
-    private Long vendorId;
+    private Vendor vendorId;
+
+    // public void setVendorId(Vendor vendor) {
+    //     // TODO Auto-generated method stub
+    //     throw new UnsupportedOperationException("Unimplemented method 'setVendorId'");
+    // }
 
     // Getters and Setters
 }

@@ -54,7 +54,7 @@
         private String workPhone;
 
          @OneToMany(mappedBy = "vendor", cascade = CascadeType.ALL, orphanRemoval = true)
-        private List<Address> addresses = new ArrayList<>();
+        private List<Address> address = new ArrayList<>();
 
         @OneToOne(mappedBy = "vendor", cascade = CascadeType.ALL, orphanRemoval = true)
         private BankDetails bankDetails;
@@ -77,23 +77,23 @@
     }
 
     public void addAddress(Address address) {
-        addresses.add(address);
+        // address.add(address);
         address.setVendor(this); // Set the vendor in the address
     }
 
     public void removeAddress(Address address) {
-        addresses.remove(address);
+        // address.remove(address);
         address.setVendor(null);
     }
 
     public void addContactPerson(ContactPerson contactPerson) {
         contactPersons.add(contactPerson);
-        contactPerson.setVendor(this); // Set the vendor in the contact person
+        contactPerson.setVendorId(this); // Set the vendor in the contact person
     }
 
     public void removeContactPerson(ContactPerson contactPerson) {
         contactPersons.remove(contactPerson);
-        contactPerson.setVendor(null);
+        contactPerson.setVendorId(null);
     }
 
 

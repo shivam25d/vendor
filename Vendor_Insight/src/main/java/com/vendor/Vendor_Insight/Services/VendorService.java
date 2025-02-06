@@ -112,7 +112,7 @@ public class VendorService {
 
         if (vendor.getContactPersons() != null) {
             for (ContactPerson contactPerson : vendor.getContactPersons()) {
-                contactPerson.setVendor(savedVendor); // Set the vendor reference
+                contactPerson.setVendorId(savedVendor); // Set the vendor reference
             }
             contactPersonRepository.saveAll(vendor.getContactPersons()); // Save contact persons
         }

@@ -17,7 +17,7 @@ public class Address {
 
     @JsonIgnore
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "vendor_id")
+    @JoinColumn(name = "vendor_id", referencedColumnName = "vendor_id", nullable = false)
     private Vendor vendorId;
 
     @Column(name = "billing_attention")
@@ -81,8 +81,6 @@ public class Address {
     private String shippingFaxNumber;
 
     // Getters and Setters
-
-
 
     public Long getAddressId() {
         return addressId;
