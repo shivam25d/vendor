@@ -3,7 +3,6 @@ package com.vendor.Vendor_Insight.Controllers;
 import com.vendor.Vendor_Insight.Entity.*;
 import com.vendor.Vendor_Insight.ExceptionHandler.VendorNotFoundException;
 import com.vendor.Vendor_Insight.Services.VendorService;
-import com.vendor.Vendor_Insight.DTO.VendorDetailsDTO;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

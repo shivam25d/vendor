@@ -3,7 +3,6 @@ package com.vendor.Vendor_Insight.Entity;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
-import java.math.BigDecimal;
 
 @Entity
 @Table(name = "vendor_other_details")

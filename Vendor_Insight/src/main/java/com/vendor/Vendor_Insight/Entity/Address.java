@@ -1,6 +1,5 @@
 package com.vendor.Vendor_Insight.Entity;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -15,10 +14,9 @@ public class Address {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long addressId;
 
-    @JsonIgnore
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "vendor_id", referencedColumnName = "vendor_id", nullable = false)
-    private Vendor vendorId;
+    private Vendor vendor;
 
     @Column(name = "billing_attention")
     private String billingAttention;
@@ -89,14 +87,6 @@ public class Address {
 
     public void setaddressId(Long id) {
         this.addressId = id;
-    }
-
-    public Vendor getVendor() {
-        return vendorId;
-    }
-
-    public void setVendor(Vendor vendorId) {
-        this.vendorId = vendorId;
     }
 
     public String getBillingAttention() {

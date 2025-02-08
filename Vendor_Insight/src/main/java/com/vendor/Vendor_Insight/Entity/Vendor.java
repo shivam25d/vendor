@@ -15,10 +15,8 @@
         @Column(name = "vendor_Id")
         private Long vendorId;
 
-
         @Column(name = "category")
         private String category;
-
 
         @Column(name = "company_name")
         private String companyName;
@@ -26,17 +24,14 @@
         @Column(name = "display_name")
         private String displayName;
 
-
         @Column(name = "email_address", unique = true)
         private String emailAddress;
 
         @Column(name = "first_name")
         private String firstName;
 
-
         @Column(name = "last_name")
         private String lastName;
-
 
         @Column(name = "mobile", unique = true)
         private String mobile;
@@ -53,17 +48,17 @@
         @Column(name = "work_phone")
         private String workPhone;
 
-         @OneToMany(mappedBy = "vendor", cascade = CascadeType.ALL, orphanRemoval = true)
+        @OneToMany(mappedBy = "vendor", cascade = CascadeType.ALL)
         private List<Address> address = new ArrayList<>();
 
-        @OneToOne(mappedBy = "vendor", cascade = CascadeType.ALL, orphanRemoval = true)
+        @OneToOne(mappedBy = "vendor", cascade = CascadeType.ALL)
         private BankDetails bankDetails;
 
-        @OneToMany(mappedBy = "vendor", cascade = CascadeType.ALL, orphanRemoval = true)
+        @OneToMany(mappedBy = "vendor", cascade = CascadeType.ALL)
         private List<ContactPerson> contactPersons = new ArrayList<>();
 
-        @OneToOne(mappedBy = "vendor", cascade = CascadeType.ALL, orphanRemoval = true)
-        private VendorOtherDetails vendorOtherDetails;
+        @OneToOne(mappedBy = "vendor", cascade = CascadeType.ALL)
+        private VendorOtherDetails vendorOtherDetails;      
 
 //    @OneToOne(mappedBy = "vendor", cascade = CascadeType.ALL, orphanRemoval = true)
 //    private OtherDocuments otherDocuments = new OtherDocuments();
@@ -88,12 +83,12 @@
 
     public void addContactPerson(ContactPerson contactPerson) {
         contactPersons.add(contactPerson);
-        contactPerson.setVendorId(this); // Set the vendor in the contact person
+        contactPerson.setVendor(this); // Set the vendor in the contact person
     }
 
     public void removeContactPerson(ContactPerson contactPerson) {
         contactPersons.remove(contactPerson);
-        contactPerson.setVendorId(null);
+        contactPerson.setVendor(null);
     }
 
 
@@ -227,12 +222,12 @@
         this.workPhone = workPhone;
     }
 
-    public List<Address> getAddresses() {
-        return addresses;
+    public List<Address> getAddress() {
+        return address;
     }
 
-    public void setAddresses(List<Address> addresses) {
-        this.addresses = addresses;
+    public void setAddress(List<Address> addresses) {
+
     }
 
     public BankDetails getBankDetails() {

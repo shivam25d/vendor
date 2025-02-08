@@ -103,11 +103,11 @@ public class VendorService {
         Vendor savedVendor = vendorRepository.save(vendor);
 
         // Assign vendor to related entities BEFORE saving them
-        if (vendor.getAddresses() != null) {
-            for (Address address : vendor.getAddresses()) {
+        if (vendor.getAddress() != null) {
+            for (Address address : vendor.getAddress()) {
                 address.setVendor(savedVendor); // Set the vendor reference
             }
-            addressRepository.saveAll(vendor.getAddresses()); // Save addresses
+            addressRepository.saveAll(vendor.getAddress()); // Save addresses
         }
 
         if (vendor.getContactPersons() != null) {
