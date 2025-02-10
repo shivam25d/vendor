@@ -248,4 +248,8 @@ public class Address {
     public void setShippingFaxNumber(String shippingFaxNumber) {
         this.shippingFaxNumber = shippingFaxNumber;
     }
+
+    public void setVendor(Vendor savedVendor) {
+
+    }
 }
