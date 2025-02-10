@@ -16,7 +16,7 @@ public class ContactPerson {
     private Long contactPersonId;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "vendor_id", nullable = false)
+    @JoinColumn(name = "vendor_id")
     private Vendor vendor;
 
     @Column(name = "salutation")
@@ -39,6 +39,12 @@ public class ContactPerson {
 
     @Column(name = "department")
     private String department;
+
+    public void setVendorId(Vendor savedVendor) {
+    }
+
+    public void setVendor(Vendor vendor) {
+    }
 
 
     // public void setVendorId(Vendor vendor) {
